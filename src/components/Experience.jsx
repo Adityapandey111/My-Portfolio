@@ -8,7 +8,7 @@ const experiences = [
   {
     title: 'Python Developer',
     company: 'Tata Consultancy Services (TCS)',
-    date: '2024 - Present',
+    date: '2025 - Present',
     points: [
       'Conducting weekly TOI meetings with international clients.',
       'Leading migration from legacy PHP tool to Python.',
