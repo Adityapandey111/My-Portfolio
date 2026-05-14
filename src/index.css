@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* ===== Custom CSS Variables ===== */
+:root {
+  --primary: #915eff;
+  --secondary: #aaa6c3;
+  --tertiary: #151030;
+  --black-100: #100d25;
+  --black-200: #090325;
+  --white-100: #f3f3f3;
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Outfit', sans-serif;
+  background-color: var(--tertiary);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--tertiary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* ===== Hash Span (scroll anchor offset) ===== */
+.hash-span {
+  margin-top: -100px;
+  padding-bottom: 100px;
+  display: block;
+}
+
+/* ===== Gradient Text ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #915eff, #00cea8, #bf61ff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Glassmorphism Card ===== */
+.glass-card {
+  background: rgba(21, 16, 48, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(145, 94, 255, 0.15);
+  border-radius: 20px;
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(145, 94, 255, 0.5);
+  box-shadow: 0 0 30px rgba(145, 94, 255, 0.15);
+}
+
+/* ===== 3D Tilt Card ===== */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.4s ease;
+}
+
+/* ===== Glow Effect ===== */
+.glow {
+  box-shadow: 0 0 20px rgba(145, 94, 255, 0.3),
+              0 0 60px rgba(145, 94, 255, 0.1);
+}
+
+/* ===== Hero Section Background Gradient ===== */
+.hero-gradient {
+  background: linear-gradient(180deg, 
+    rgba(21, 16, 48, 0) 0%,
+    rgba(21, 16, 48, 0.8) 80%,
+    rgba(21, 16, 48, 1) 100%
+  );
+}
+
+/* ===== Floating Animation ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===== Pulse Glow ===== */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(145, 94, 255, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(145, 94, 255, 0.8); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* ===== Timeline Customization ===== */
+.vertical-timeline-element-content {
+  background: rgba(21, 16, 48, 0.6) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(145, 94, 255, 0.15) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 0 20px rgba(145, 94, 255, 0.1) !important;
+  padding: 2rem !important;
+}
+
+.vertical-timeline-element-content-arrow {
+  border-right-color: rgba(145, 94, 255, 0.3) !important;
+}
+
+.vertical-timeline::before {
+  background: linear-gradient(180deg, #915eff, #00cea8) !important;
+}
+
+/* ===== Section padding ===== */
+.section-padding {
+  padding: 6rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-padding {
+    padding: 8rem 10rem;
+  }
+}
+
+/* ===== Particle canvas behind ===== */
+.canvas-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
