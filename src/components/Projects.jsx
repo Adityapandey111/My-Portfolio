@@ -49,7 +49,7 @@ const ProjectCard = ({ project, index }) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`, transition: 'transform 0.2s ease-out' }}
-      className="glass-card overflow-hidden group cursor-pointer"
+      className="glass-card overflow-hidden group cursor-pointer w-full max-w-xl"
     >
       {/* Project Header with gradient */}
       <div className={`relative h-48 bg-gradient-to-br ${project.gradient} p-8 flex items-end`}>
@@ -73,13 +73,13 @@ const ProjectCard = ({ project, index }) => {
       </div>
 
       {/* Project Body */}
-      <div className="p-8">
+      <div className="p-8 text-center">
         <p className="text-[#aaa6c3] font-['Inter'] text-sm leading-relaxed mb-6">{project.description}</p>
         <div className="space-y-3">
           <p className="text-white font-['Outfit'] text-sm font-semibold">Key Features</p>
           {project.features.map((feature, i) => (
             <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}
-              className="flex items-center gap-3">
+              className="flex items-center justify-center gap-3">
               <div className="w-1.5 h-1.5 rounded-full bg-[#00cea8]" />
               <span className="text-[#aaa6c3] font-['Inter'] text-sm">{feature}</span>
             </motion.div>
@@ -98,14 +98,14 @@ const Projects = () => {
     <section id="projects" className="relative section-padding">
       <span className="hash-span">&nbsp;</span>
       <div className="max-w-7xl mx-auto">
-        <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }} className="mb-16">
+        <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }} className="mb-16 text-center">
           <p className="text-[#915eff] font-['Inter'] text-sm font-semibold uppercase tracking-[0.2em] mb-3">My work</p>
           <h2 className="text-white font-['Outfit'] text-4xl sm:text-5xl font-bold mb-6">Featured <span className="gradient-text">Projects</span></h2>
-          <p className="text-[#aaa6c3] font-['Inter'] text-base leading-relaxed max-w-2xl">
+          <p className="text-[#aaa6c3] font-['Inter'] text-base leading-relaxed max-w-2xl mx-auto">
             Following project showcases my skills and experience through a real-world example. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.
           </p>
         </motion.div>
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl">
+        <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
           {projects.map((project, i) => <ProjectCard key={project.name} project={project} index={i} />)}
         </div>
       </div>

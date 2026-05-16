@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaGraduationCap, FaSchool } from 'react-icons/fa';
+import { FaGraduationCap } from 'react-icons/fa';
 
 const educationData = [
   {
@@ -11,24 +11,7 @@ const educationData = [
     location: 'Allahabad, India',
     icon: FaGraduationCap,
     color: '#915eff',
-  },
-  {
-    degree: 'Higher Secondary (Class XII)',
-    school: 'Mahashakti Vidyapith Parsada Gonda',
-    year: '2018',
-    grade: 'Grade - A',
-    location: 'Uttar Pradesh, India',
-    icon: FaSchool,
-    color: '#00cea8',
-  },
-  {
-    degree: 'Secondary School (Class X)',
-    school: 'Santkabir Higher Secondary School Parsada Gonda',
-    year: '2016',
-    grade: 'Grade - A',
-    location: 'Uttar Pradesh, India',
-    icon: FaSchool,
-    color: '#bf61ff',
+    image: '/mnnit.png',
   },
 ];
 
@@ -78,6 +61,18 @@ const EducationCard = ({ edu, index }) => (
         {edu.year}
       </span>
     </div>
+
+    {/* Education Image */}
+    {edu.image && (
+      <div className="mt-6 w-full rounded-xl overflow-hidden border border-white/10 shadow-lg relative group/img">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/80 via-transparent to-transparent z-10 pointer-events-none opacity-60" />
+        <img 
+          src={edu.image} 
+          alt={edu.school} 
+          className="w-full h-auto sm:h-[22rem] object-cover object-center group-hover/img:scale-105 transition-transform duration-700 ease-in-out" 
+        />
+      </div>
+    )}
   </motion.div>
 );
 
@@ -93,8 +88,8 @@ const Education = () => {
           <p className="text-[#915eff] font-['Inter'] text-sm font-semibold uppercase tracking-[0.2em] mb-3">My academic journey</p>
           <h2 className="text-white font-['Outfit'] text-4xl sm:text-5xl font-bold"><span className="gradient-text">Education</span></h2>
         </motion.div>
-        <div className="max-w-3xl mx-auto space-y-6">
-          {educationData.map((edu, i) => <EducationCard key={i} edu={edu} index={i} />)}
+        <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+          {educationData.map((edu, i) => <div key={i} className="w-full max-w-xl"><EducationCard edu={edu} index={i} /></div>)}
         </div>
       </div>
     </section>
